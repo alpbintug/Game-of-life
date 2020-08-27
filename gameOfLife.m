@@ -23,7 +23,7 @@ while ~stop && cur_iterations<max_iterations
    
    image(Map);
    drawnow;
-   %pause(0.1);
+   pause(0.1);
    if Map == dummyMap
        stop=true;
    end
