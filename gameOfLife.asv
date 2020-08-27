@@ -1,0 +1,29 @@
+function gameOfLife
+width = 50;
+height = 50;
+randVals = rand(width,height);
+Map = randVals>0.9;
+Map = Map * 255;
+dummyMap = Map;
+imshow(Map);
+pause(0.1);
+stop = false;
+max_iterations = 100;
+cur_ = 0;
+
+while ~stop && i<max_iterations
+   for i=2:height-1
+        for j=2:width-1           
+            % apply Game of life rule     
+            Map(i,j)=calculateNextState(dummyMap,i,j)            ;
+        end
+   end
+   if Map == dummyMap
+       stop=true;
+   end
+   imshow(Map);
+   pause(0.1);
+   dummyMap = Map;
+   i = i+1;
+   disp(i)
+end
